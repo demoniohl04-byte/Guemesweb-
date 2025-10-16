@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martín Miguel de Güemes</title>
+<style>
+  /* -------------------- ESTILOS GENERALES -------------------- */
+  body {
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    background-color: #f9fafb;
+    color: #1f2937;
+  }
+
+  header {
+    background-color: #fef3c7;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 10;
+  }
+
+  header h1 {
+    color: #bfa66a;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px #7b4e16;
+    margin-bottom: 0.5rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    border: 2px solid #facc15;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #7b4e16;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  nav a:hover {
+    background-color: #facc15;
+    color: #7b4e16;
+    transform: scale(1.1);
+  }
+
+  main {
+    padding: 2rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  section {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    background: rgba(255,255,255,0.8);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+
+  section:hover {
+    transform: scale(1.02);
+  }
+
+  h2 {
+    color: #bfa66a;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+    color: #5c3b1e;
+  }
+
+  footer {
+    background-color: #bfa66a;
+    color: #7b4e16;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* -------------------- EFECTO FONDO ANIMADO -------------------- */
+  .fondo-animado {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to right, #38bdf8, white, #38bdf8);
+    background-size: 200% 200%;
+    animation: wave 10s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: 0;
+  }
+
+  @keyframes wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* -------------------- EFECTO ESCRITURA RESPONSIVO -------------------- */
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid #d49b56;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    font-size: clamp(1.2rem, 5vw, 1.8rem); /* tamaño adaptable en móviles */
+    font-weight: bold;
+    color: #bfa66a;
+    text-align: center;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #d49b56 }
+  }
+
+  /* -------------------- BOTÓN -------------------- */
+  .btn {
+    display: inline-block;
+    background-color: #bfa66a;
+    color: #7b4e16;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    border: 3px solid #bfa66a;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #d49b56;
+    transform: scale(1.1);
+  }
+
+  /* -------------------- PREGUNTAS FRECUENTES -------------------- */
+  .faq {
+    background-color: #fef9c3;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  }
+
+  /* 💫 Animación al pasar el cursor (igual que los datos curiosos) */
+  .faq:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(191, 166, 106, 0.6);
+    background-color: #fff6b3;
+    cursor: pointer;
+  }
+
+  .faq h3 {
+    color: #7b4e16;
+  }
+
+  .faq p {
+    margin-top: 0.5rem;
+  }
+
+  /* -------------------- DATOS CURIOSOS -------------------- */
+  .curioso {
+    background-color: #fef9c3;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  }
+
+  .curioso:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(191, 166, 106, 0.6);
+    background-color: #fff6b3;
+  }
+</style>
+</head>
+<body>
+
+<div class="fondo-animado"></div>
+
+<header>
+  <h1>Martín Miguel de Güemes</h1>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#biografia">Biografía</a>
+    <a href="#luchas">Luchas</a>
+    <a href="#legado">Legado</a>
+    <a href="#preguntas">Preguntas</a>
+    <a href="#curiosidades">Curiosidades</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio">
+    <h2 class="typewriter">¡Defensor de la libertad argentina!</h2>
+    <h2>Héroe del Norte Argentino</h2>
+    <p>
+      Martín Miguel de Güemes fue un patriota y militar argentino que defendió la independencia nacional con coraje y estrategia. 
+      Su liderazgo y la lealtad de su pueblo marcaron un antes y un después en la historia de la libertad de América del Sur.
+    </p>
+  </section>
+
+  <section id="biografia">
+    <h2>Biografía</h2>
+    <p>
+      Martín Miguel de Güemes nació en Salta el 8 de febrero de 1785. Desde joven mostró una gran vocación militar y patriótica. 
+      Participó en las Invasiones Inglesas y luego se unió a la lucha por la independencia del dominio español.
+    </p>
+    <p>
+      Fue gobernador de Salta desde 1815 hasta su muerte en 1821, defendiendo la frontera norte con valor y compromiso.
+    </p>
+    <a href="#luchas" class="btn">Leer más sobre Luchas</a>
+  </section>
+
+  <section id="luchas">
+    <h2>Luchas</h2>
+    <p>
+      Güemes combatió en las Invasiones Inglesas y en las guerras por la Independencia. 
+      Formó el Ejército de los Infernales, una milicia de gauchos valientes que aplicó tácticas de guerra de guerrillas 
+      para frenar las invasiones realistas y proteger la frontera norte.
+    </p>
+    <p>
+      Sus estrategias innovadoras y liderazgo popular lo convirtieron en un símbolo de resistencia en el norte argentino.
+    </p>
+  </section>
+
+  <section id="legado">
+    <h2>Legado</h2>
+    <p>
+      Güemes es recordado como un héroe popular y defensor de la independencia argentina. 
+      Su liderazgo inspiró a miles de hombres y mujeres que se unieron a la causa de la libertad.
+    </p>
+    <p>
+      Cada 17 de junio se celebra el Día Nacional de la Libertad Latinoamericana en su honor.
+    </p>
+  </section>
+
+  <section id="preguntas">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq"><h3>¿Dónde nació Martín Miguel de Güemes?</h3><p>Nació en Salta el 8 de febrero de 1785.</p></div>
+    <div class="faq"><h3>¿Qué fue el Ejército de los Infernales?</h3><p>Una milicia de gauchos salteños que luchó junto a Güemes en defensa de la independencia.</p></div>
+    <div class="faq"><h3>¿Cuándo se celebra el Día Nacional de la Libertad Latinoamericana?</h3><p>El 17 de junio, en conmemoración de su fallecimiento.</p></div>
+    <div class="faq"><h3>¿Qué cargo ocupó Güemes en Salta?</h3><p>Fue gobernador de Salta desde 1815 hasta 1821.</p></div>
+    <div class="faq"><h3>¿Qué tipo de guerra usaban los gauchos?</h3><p>Aplicaban tácticas de guerrillas, aprovechando el terreno y la sorpresa.</p></div>
+    <div class="faq"><h3>¿Con qué otros héroes se relacionó Güemes?</h3><p>Tuvo vínculos con San Martín y Belgrano en la causa independentista.</p></div>
+    <div class="faq"><h3>¿Cómo murió Güemes?</h3><p>Fue herido en combate y murió el 17 de junio de 1821, fiel a su causa.</p></div>
+    <div class="faq"><h3>¿Qué simboliza Güemes hoy en día?</h3><p>Simboliza el coraje, el patriotismo y la unión popular del norte argentino.</p></div>
+    <div class="faq"><h3>¿Dónde se encuentra su monumento más conocido?</h3><p>En la ciudad de Salta, en el cerro San Bernardo.</p></div>
+    <div class="faq"><h3>¿Qué importancia tuvo su pueblo?</h3><p>El apoyo del pueblo salteño fue clave para resistir las invasiones realistas y mantener la independencia.</p></div>
+  </section>
+
+  <section id="curiosidades">
+    <h2>Datos Curiosos</h2>
+    <div class="curioso">1. Güemes usaba tácticas de guerrilla antes de que se conociera como tal.</div>
+    <div class="curioso">2. Su ejército estaba compuesto mayoritariamente por gauchos locales.</div>
+    <div class="curioso">3. Se cree que su figura inspiró la resistencia en otras provincias del norte.</div>
+    <div class="curioso">4. Fue uno de los primeros en implementar tácticas móviles y de sorpresa.</div>
+    <div class="curioso">5. Su liderazgo popular le ganó el apoyo incondicional de Salta.</div>
+    <div class="curioso">6. Güemes sufrió múltiples atentados y emboscadas a lo largo de su vida.</div>
+    <div class="curioso">7. Su muerte generó un luto generalizado en todo el norte argentino.</div>
+    <div class="curioso">8. Su legado está presente en calles y monumentos de varias provincias.</div>
+    <div class="curioso">9. El Ejército de los Infernales es considerado precursor de la guerrilla argentina.</div>
+    <div class="curioso">10. Cada año se realizan actos en su honor en Salta y otras ciudades.</div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Para consultas o información, podés escribir a:</p>
+    <a href="mailto:ramos.nm08@gmail.com" class="btn">ramos.nm08@gmail.com</a>
+  </section>
+</main>
+
+<footer>
+  © 2025 Historia Argentina | Martín Miguel de Güemes
+</footer>
+
+</body>
+</html>
